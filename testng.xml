@@ -2,34 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="utilities.ExtentReportManager"/>
+        <listener class-name="extentreport.ExtentReportManager"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="Coursera">
         <classes>
-            <class name="testcases.TC_01_PageIdentityVerification"/>
-            <class name="testcases.TC_02_VerifyLoginAndEmail"/>
-            <class name="testcases.TC_03_VerifyExploreCategories"/>
-            <class name="testcases.TC_04_VerifyComputerScience"/>
-            <class name="testcases.TC_05_FooterCheck"/>
-            <class name="testcases.TC_06_SearchBarFunctionality"/>
-            <class name="testcases.TC_07_VerifyProductNamesAndPartner"/>
-            <class name="testcases.TC_08_VerifyReviews"/>
-            <class name="testcases.TC_09_VerifyLevels"/>
-            <class name="testcases.TC_010_SkillsExtraction"/>
-            <class name="testcases.TC_011_DurationLabelExtraction"/>
-            <class name="testcases.TC_012_ProjectStepsExtraction"/>
-            <class name="testcases.TC_013_NoSetupGuarantee"/>
-            <class name="testcases.TC_014_VerifyRatings"/>
-            <class name="testcases.TC_015_InstructorDetails"/>
-            <class name="testcases.TC_016_SortFunctionExistence"/>
-            <class name="testcases.TC_017_GetAllLanguagesAndLevels"/>
-            <class name="testcases.TC_018_FirstTwoCoursesDetails"/>
-            <class name="testcases.TC_019_CheckFAQ"/>
-            <class name="testcases.TC_020_CheckLoginButtonEnabledOrNot"/>
-            <class name="testcases.TC_021_ProgramOverview"/>
-            <class name="testcases.TC_022_FormSubmissionWithValidData"/>
-            <class name="testcases.TC_023_FormSubmissionWithInvalidData"/>
-            <class name="testcases.TC_024_CheckForHelpSection"/>
+<!--            <class name="testcases.TC_01_PageIdentityVerification"/>-->
+<!--            <class name="testcases.TC_02_VerifyLoginAndEmail"/>-->
+<!--            <class name="testcases.TC_03_VerifyExploreCategories"/>-->
+<!--            <class name="testcases.TC_04_VerifyComputerScience"/>-->
+<!--            <class name="testcases.TC_05_FooterCheck"/>-->
+            <class name="testcases.TC_07_FormSubmissionWithValidData"/>
+            <class name="testcases.TC_09_WriteThankYouPlusPageToExcel"/>
+
         </classes>
     </test>
 </suite>

@@ -1,18 +1,18 @@
 package testcases;
 
 import basetest.BaseTest;
+import dataproviders.FormDataProviders;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import dataproviders.FormDataProviders;
 import pageObjects.BusinessFormPage;
 import pageObjects.HomePage;
 
-public class TC_022_FormSubmissionWithValidData extends BaseTest {
+public class TC_07_FormSubmissionWithValidData extends BaseTest {
     HomePage homePage;
     BusinessFormPage businessFormPage;
 
     @Test(
-            priority = 31,
+            priority = 11,
             dataProvider = "validFormData",
             dataProviderClass = FormDataProviders.class
     )

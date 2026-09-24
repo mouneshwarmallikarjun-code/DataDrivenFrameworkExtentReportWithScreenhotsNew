@@ -1,7 +1,9 @@
 package testcases;
 
 import basetest.BaseTest;
+import extentreport.ExtentReportManager;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import utilities.Log;
@@ -9,7 +11,7 @@ import utilities.Log;
 import java.io.IOException;
 
 public class TC_01_PageIdentityVerification extends BaseTest {
-    //By Irfan
+
     HomePage homePage;
     @Test(priority = 1)
     public void verifyURl() throws IOException {

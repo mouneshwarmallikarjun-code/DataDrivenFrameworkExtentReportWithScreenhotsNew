@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 
 public class TC_03_VerifyExploreCategories extends BaseTest {
-    //By Aditya
+
     HomePage homePage;
     @Test(priority = 5)
     public void checkExplore() throws Exception {

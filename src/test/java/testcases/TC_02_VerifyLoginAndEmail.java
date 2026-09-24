@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 
 public class TC_02_VerifyLoginAndEmail extends BaseTest {
-    //Aditya
+
     HomePage homePage;
     @Test(priority = 4)
     public void testLogInAndEmailLabel() throws Exception {

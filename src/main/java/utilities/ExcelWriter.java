@@ -5,19 +5,21 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public final class ExcelWriter {
-    private static final Path OUTPUT_DIR = Paths.get("Output");
+    private static final Path OUTPUT_DIR = Paths.get("test-data");
     private static final String FILE_NAME =
-            "Coursera_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".xlsx";
+            "Coursera_OutputSheet" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".xlsx";
     private static final XSSFWorkbook WORKBOOK = new XSSFWorkbook();
     private static final Path OUTPUT_FILE = OUTPUT_DIR.resolve(FILE_NAME);
     private ExcelWriter() {}
     public static void writeList(String sheetName, List<String> data, String columnName) throws IOException {
+        Files.createDirectories(OUTPUT_DIR);
         Sheet sheet = WORKBOOK.getSheet(sheetName);
         if (sheet == null) {
             sheet = WORKBOOK.createSheet(sheetName);

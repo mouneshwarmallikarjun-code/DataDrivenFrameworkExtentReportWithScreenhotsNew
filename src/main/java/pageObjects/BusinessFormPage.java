@@ -1,14 +1,21 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.CommonCode;
 
+import java.util.List;
+
 public class BusinessFormPage {
+    private static final By CHATBOT_LAUNCHER = By.cssSelector("button[data-testid='WESAskCourseraLauncher-pill']");
     WebDriver driver;
     WebDriverWait wait;
     CommonCode commonCode;
@@ -103,8 +110,32 @@ public class BusinessFormPage {
         countries.selectByValue(countryInp);
         Select states=new Select(state);
         states.selectByValue(stateInp);
-        submitBtn.click();
+        submitFormSafely();
     }
+
+    private void submitFormSafely() {
+        commonCode.scrollIntoViewer(submitBtn);
+        hideChatbotLauncherIfPresent();
+        try {
+            commonCode.elementClickableFunc(submitBtn).click();
+        } catch (ElementClickInterceptedException e) {
+            hideChatbotLauncherIfPresent();
+            commonCode.jsClick(submitBtn);
+        }
+    }
+
+    private void hideChatbotLauncherIfPresent() {
+        List<WebElement> chatbotLaunchers = driver.findElements(CHATBOT_LAUNCHER);
+        for (WebElement chatbotLauncher : chatbotLaunchers) {
+            try {
+                if (chatbotLauncher.isDisplayed()) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none';", chatbotLauncher);
+                }
+            } catch (Exception ignore) {
+            }
+        }
+    }
+
     public boolean emailCheck(){
         try {
             boolean check=commonCode.visibilityElementFunc(invalidEId).isDisplayed();
@@ -116,7 +147,11 @@ public class BusinessFormPage {
     }
     public boolean formSubmissionStatus(){
         try{
-            return (commonCode.visibilityElementFunc(formStatusDisplay)).isDisplayed();
+            wait.until(ExpectedConditions.or(
+                    ExpectedConditions.urlContains("thank_you_plus"),
+                    ExpectedConditions.visibilityOf(formStatusDisplay)
+            ));
+            return driver.getCurrentUrl().contains("thank_you_plus") || formStatusDisplay.isDisplayed();
         }
         catch (Exception e){
             return false;
