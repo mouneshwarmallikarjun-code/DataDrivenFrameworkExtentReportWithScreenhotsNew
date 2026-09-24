@@ -6,13 +6,13 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="Coursera">
         <classes>
-<!--            <class name="testcases.TC_01_PageIdentityVerification"/>-->
-<!--            <class name="testcases.TC_02_VerifyLoginAndEmail"/>-->
-<!--            <class name="testcases.TC_03_VerifyExploreCategories"/>-->
+            <class name="testcases.TC_01_PageIdentityVerification"/>
+            <class name="testcases.TC_02_VerifyLoginAndEmail"/>
+            <class name="testcases.TC_03_VerifyExploreCategories"/>
 <!--            <class name="testcases.TC_04_VerifyComputerScience"/>-->
 <!--            <class name="testcases.TC_05_FooterCheck"/>-->
-            <class name="testcases.TC_07_FormSubmissionWithValidData"/>
-            <class name="testcases.TC_09_WriteThankYouPlusPageToExcel"/>
+<!--            <class name="testcases.TC_07_FormSubmissionWithValidData"/>-->
+<!--            <class name="testcases.TC_09_WriteThankYouPlusPageToExcel"/>-->
 
         </classes>
     </test>
